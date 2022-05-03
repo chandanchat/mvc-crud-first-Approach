@@ -1,0 +1,41 @@
+﻿@model mvc_crud_first_Approach.context.student
+@{
+    ViewBag.Title = "student";
+<h2>student form</h2>
+}
+<style>
+    .error{
+       color:red;
+    }
+</style>
+@using (Html.BeginForm("AddStudent", "student", FormMethod.Post))
+{
+<div class="container">
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.id)
+        <label>name</label>
+        @Html.ValidationMessageFor(x => x.name,"",new { @class ="error" })
+        @Html.TextBoxFor(x => x.name, new { @class = "from-control" })
+    </div>
+    <div class="form-group">
+        <label>rollno</label>
+        @Html.ValidationMessageFor(x => x.rollno, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.rollno, new { @class = "from-control" })
+    </div>
+    <div class="form-group">
+        <label>age</label>
+        @Html.ValidationMessageFor(x => x.age, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.age, new { @class = "from-control" })
+    </div>
+    <div class="form-group">
+        <label> city</label>
+        @Html.ValidationMessageFor(x => x.city, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.city, new { @class = "from-control" })
+    </div>
+
+</div>
+<button type="submit" class="btn btn ">Submit</button>
+<button type="reset" class="btn btn ">reset</button>
+}
+
+

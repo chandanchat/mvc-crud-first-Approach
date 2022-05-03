@@ -1,0 +1,31 @@
+﻿@model List<mvc_crud_first_Approach.context.student>
+
+@{
+    ViewBag.Title = "studentList";
+}
+
+
+<table class="table table-hover">
+    <tr>
+        <th>name</th>
+        <th>rollno</th>
+        <th>age</th>
+        <th>city</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td> @item.name</td>
+    <td> @item.rollno</td>
+    <td> @item.age</td>
+    <td> @item.city</td>
+    <td>
+        <a href="@Url.Action("student", new { item.name, item.rollno, item.age, item.city })class="btn btn-success">Edit</a>
+        <a href="@Url.Action("Delete", new {item.id })"class="btn btn bg-danger">Delete</a>
+    </td>
+
+</tr>
+            }
+</table>
+
